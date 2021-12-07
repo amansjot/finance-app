@@ -1,6 +1,9 @@
 # finance-app
 
 **Finance Analysis Tracker**
+
+---
+
 Project for CISC108-080
 
 Contributors: Ashanti Craig, Andrew Kallai, John Ma, Aman Singh
