@@ -1,2 +1,8 @@
 # finance-app
-Finance analysis tracker for college students to minimize their spendings.
+
+Project for CISC108-080
+
+Description: Finance analysis tracker for college students to minimize their spendings.
+
+Contributors: Ashanti Craig, Andrew Kallai, John Ma, Aman Singh
+
