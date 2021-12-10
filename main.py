@@ -1,12 +1,16 @@
 import sqlite3 as db
+import sys
 
-def init():
-    print("Hello! Welcome to your personal Finance Tracker.")
-    conn = create_table()
+def init(time: int):
 
-    print("R to record spendings/earnings, V to view spendings/earnings, M to make recommendations")
+    if time == 0:
+        print("Hello! Welcome to your personal Finance Tracker.")
+        conn = db.connect("expenses.db")
+        create_table(conn)
+
+    print("R to record spendings/earnings, V to view spendings/earnings, M to make recommendations, Q to quit")
     action = ""
-    while action not in ["R", "T", "M"]:
+    while action not in ["R", "V", "M", "Q"]:
         action = input("What action would you like to perform? ")
     if action == "R":
         ans = ""
@@ -20,25 +24,46 @@ def init():
         view_spendings()
     elif action == "M":
         make_rec()
+    elif action == "Q":
+        sys.exit()
 
-def create_table():
-    conn = db.connect("tracker.db")
+    get_posts(conn)
+
+def create_table(conn):
+    cursor = conn.cursor()
     sql = """
-        create table if not exists expenses (
+        CREATE table IF NOT EXISTS expenses (
             datestr string,
             expense string,
             amount number
         )
     """
-    conn.cursor().execute(sql)
-    # conn.commit()
-
-    conn.cursor().execute("insert into expenses values ('07/01/2003', 'Movie Ticket', 10.00)")
+    cursor.execute(sql)
     conn.commit()
 
-    return conn
-
 def record_spendings(conn):
-    conn.cursor().execute("insert into expenses values ('07/01/2003', 'Movie Ticket', 10.00)")
+    cursor = conn.cursor()
 
-init()
+    print("-----")
+    print("Record Spending")
+    print("-----")
+
+    spending = input("Date of spending: ")
+    expense = input("Title of expense: ")
+    amount = input("Amount in $: ")
+
+    cursor.execute("insert into expenses values (?, ?, ?)", (spending, expense, amount))
+    conn.commit()
+
+    print("-----")
+    print("Spending for '" + expense + "' added!")
+    print("-----")
+
+    init(1)
+
+def get_posts(conn):
+    cursor = conn.cursor()
+    cursor.execute("select * from expenses")
+    print(cursor.fetchall())
+
+init(0)
