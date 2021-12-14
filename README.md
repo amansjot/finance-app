@@ -10,7 +10,7 @@ Contributors: Ashanti Craig, Andrew Kallai, John Ma, Aman Singh
 
 ---
 
-Description: Finance analysis tracker for college students to minimize their spendings.
+Description: Finance analysis tracker for college students to record their spending and earning.
 
 Problem: College students have lots of loans to pay off, but despite this, many are very spendthrift. If students used a tracker, they would better understand how they spend their money and how they can reallocate their spending based on what they need and don’t.
 
