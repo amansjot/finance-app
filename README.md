@@ -1,6 +1,6 @@
 # finance-app
 
-**Finance Analysis Tracker**
+**Finance Tracker**
 
 ---
 
@@ -20,4 +20,4 @@ Address: The tracker would help students learn how to better manage their money,
 
 ---
 
-Usage: In this program, the user is able to record spendings and earnings, view spendings and earnings, and see recommendations for their financial expenditures. The values they input are tracked in a database "expenses" and managed with SQLite. The user can interact with the program using any Command Line Interface (optimized for PyCharm).
+Usage: In this program, the user is able to record spendings and earnings and view spendings and earnings to better understand their habits. The values they input are tracked in databases "expenses" and "earnings" and managed with SQLite. The user can interact with the program using any Command Line Interface (optimized for PyCharm).
